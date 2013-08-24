@@ -1,0 +1,105 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+    <h:head>
+        <title>Celebration Guest Registration</title>
+        <script type="text/javascript">
+            window.onload = function() {
+                document.getElementById('registration:destnum').focus();
+            };
+            function focusDestnum() {
+                document.getElementById('registration:destnum').focus();
+            };
+        </script>
+        <style type="text/css">
+            .ui-clock {
+                background-color: #ffffff;
+                border: 0;
+                padding: 0 0 0 0;
+                margin: 0 0 0 0;
+                font-weight: normal;
+            }
+            .toUpper {
+                text-transform: uppercase;
+            }
+        </style>
+    </h:head>
+    <h:body>
+        Registration | <a href="./regular.jsp" target="_blank" title="View non-commercial registrations.">Regular</a> | <a href="./commercial.jsp" target="_blank" title="View commercial registrations.">Commercial</a>
+        <h:form id="registration">
+            <p:panelGrid>
+                <p:row>
+                    <p:column>
+                        <h:outputLabel value="Time"/>
+                    </p:column>
+                    <p:column>
+                        <p:clock  pattern="M/dd/yy h:mm a" mode="server" autoSync="true"/> 
+                    </p:column>
+                </p:row>   
+                <p:row>
+                    <p:column>
+                        <p:outputLabel for="destnum" value="Destination" />
+                    </p:column>
+                    <p:column>
+                        <h:inputText id="destnum" value="#{process.destnum}" 
+                                     maxlength="3" size="3" autocomplete="false" 
+                                     title="Enter up to 3 digits, no letters."
+                                     style="width:33px" styleClass="toUpper" /> 
+                        <h:selectOneMenu value="#{process.deststreet}" immediate="true" 
+                                         title="Select the street.">
+                            <f:selectItem itemValue="Skyline Drive" itemLabel="Skyline Drive" />
+                            <f:selectItem itemValue="Longpond Lane" itemLabel="Longpond Lane" />
+                            <f:selectItem itemValue="Circle Loop" itemLabel="Circle Loop" />
+                            <f:selectItem itemValue="Studio Lane" itemLabel="Studio Lane" />
+                            <f:selectItem itemValue="Stage Lane" itemLabel="Stage Lane" />
+                            <f:selectItem itemValue="Scenic Lane" itemLabel="Scenic Lane" />
+                            <f:selectItem itemValue="Sky Lane" itemLabel="Sky Lane" />
+                            <f:selectItem itemValue="Celebration Lane" itemLabel="Celebration Lane" />
+                            <f:selectItem itemValue="Theatre Lane" itemLabel="Theatre Lane" />
+                            <f:selectItem itemValue="Rodeo Drive" itemLabel="Rodeo Drive" />
+                        </h:selectOneMenu>
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column>
+                        <h:outputLabel for="plate" value="Plate" />
+                    </p:column>
+                    <p:column>
+                        <h:inputText id="plate" value="#{process.plate}" maxlength="16" size="16" autocomplete="false"
+                                     title="Enter the licence plate number." styleClass="toUpper"/>
+                    </p:column>
+                </p:row> 
+                <p:row>
+                    <p:column>
+                        <h:outputLabel for="comments" value="Comments"/>
+                    </p:column>
+                    <p:column>
+                        <h:inputText id="comments" value="#{process.comments}" maxlength="20" size="20" autocomplete="false"
+                                     styleClass="toUpper" title="Enter the company if commercial or reason why the individual refused a pass, for example enter DO if its a drop off, PU if its a pick up, or RP if they refused the pass for no reason."/>                      
+                    </p:column>
+
+                </p:row>
+                <p:row>
+                    <p:column>
+                        <h:outputLabel value="Commercial"/>
+                    </p:column>
+                    <p:column>
+                        <h:selectBooleanCheckbox value="#{process.commercial}" title="Check this box if the visitor is here for commercial interests."/>
+                    </p:column>
+                </p:row>
+                <p:row>
+                    <p:column colspan="2" style="text-align:center">
+                        <h:commandButton value="Print" action="#{process.print}" type="Submit" title="Print a guest pass based on the info entered above."/>&nbsp;&nbsp;&nbsp;
+                        <h:commandButton value="Save" action="#{process.save}" type="Submit" onclick="focusDestnum();" title="Save the info entered above to the database and clear the form."/>&nbsp;&nbsp;&nbsp; 
+                        <h:commandButton value="Cancel" type="reset" onclick="focusDestnum();" title="Clear all the info you entered above."/>
+                    </p:column>
+                </p:row>                      
+            </p:panelGrid>
+            
+        </h:form>
+    </h:body>
+</html>
+
