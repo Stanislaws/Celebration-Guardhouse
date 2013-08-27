@@ -14,7 +14,7 @@ This program is free software: you can redistribute it and/or modify
     You should have received a copy of the GNU General Public License
     along with this program.  If not, see <http://www.gnu.org/licenses/>.
 
-Replaces their current system of writing on a clipboard and paper passes for admitting vehicles into the complex at 15 Circle Loop, Staten Island NY
+Replaces their current system of writing on a clipboard and paper passes for admitting vehicles into the complex.
 
 Requires Tomcat 7.0.24+ and Oracle XE 11g+
 
