@@ -40,7 +40,7 @@ public class DB {
             ClassNotFoundException{
         Class.forName("oracle.jdbc.driver.OracleDriver");
         Connection c = DriverManager.getConnection(
-                "jdbc:oracle:thin:@localhost:1521:xe", "SYSTEM", "cbdbpass");
+                "jdbc:oracle:thin:@localhost:1521:xe", "SYSTEM", "c63exEba");
         Statement s = c.createStatement();
         ResultSet r = s.executeQuery(query);
         return r;
