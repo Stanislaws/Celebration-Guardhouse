@@ -43,9 +43,9 @@
         <h3>Rainbow Hill Homeowners Association, Inc.</h3>
         <h2>24-Hour Guest Pass</h2>
         <h2>Community Speed Limit is <b>10</b> Miles Per Hour</h2>
-        <h4>Address Visiting: <%out.print(dest);%></h4>
-        <h4>License Plate Number: <%out.print(plate);%></h4>
-            <h4>(This PASS expired 24 HOURS from DATE of Receipt)</h4>
+        <h2>Address Visiting: <%out.print(dest);%></h4>
+        <h2>License Plate Number: <%out.print(plate);%></h4>
+            <h4>(This PASS expires 24 HOURS from DATE of Receipt)</h4>
             <h4>Please be advised that this pass is valid for <u><i>24 HOURS ONLY</i></u> for the
                 above person and vehicle.</h4>
             <h4>To avoid being towed at your own expense, please display this Pass (this side up) on the
@@ -53,6 +53,5 @@
                 Visitors Parking Spaces located on Skyline Drive.</h4>
             
             <p>&nbsp;</p>
-            <img alt="" src="map.PNG"/>
     </body>
 </html>
