@@ -32,10 +32,30 @@ public class DB {
     /**
      * The db method used across the application
      * @param query the SQL query string
+     * @param dbport the DB port number, defaults to 1521
+     * @param dbuser the DB username, defaults to SYSTEM
+     * @param dbpass the DB password
      * @return a resultset of the data
      * @throws SQLException
      * @throws ClassNotFoundException 
      */
+    public static ResultSet connects(String query, String dbport, String dbuser, String dbpass) throws SQLException, 
+            ClassNotFoundException{
+        Class.forName("oracle.jdbc.driver.OracleDriver");
+        Connection c = DriverManager.getConnection(
+                "jdbc:oracle:thin:@localhost:"+dbport+":xe", dbuser, dbpass);
+        Statement s = c.createStatement();
+        ResultSet r = s.executeQuery(query);
+        return r;
+    }
+    /**
+     * The db method used across the application
+     * @param query the SQL query string
+     * @return a resultset of the data
+     * @throws SQLException
+     * @throws ClassNotFoundException 
+     */
+    
     public static ResultSet connects(String query) throws SQLException, 
             ClassNotFoundException{
         Class.forName("oracle.jdbc.driver.OracleDriver");
@@ -44,6 +64,5 @@ public class DB {
         Statement s = c.createStatement();
         ResultSet r = s.executeQuery(query);
         return r;
-    }
-    
+    }    
 }
